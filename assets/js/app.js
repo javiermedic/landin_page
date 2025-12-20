@@ -88,3 +88,42 @@ if (img) {
       window.addEventListener('scroll', updateWidth);
       updateWidth(); // Inicializar estado al cargar
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            }
+          });
+        });
+        const hiddenElements = document.querySelectorAll(".reveal-text");
+        hiddenElements.forEach((el) => observer.observe(el));
+
+        const textTitle = document.querySelector('.reveal-text');
+        if (textTitle) {
+            const updateSpacing = () => {
+                const rect = textTitle.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                // Calcula el espaciado: empieza amplio abajo y se reduce (achica) al subir
+                let spacing = Math.max(0, (rect.top - windowHeight / 2) / 10);
+                textTitle.style.letterSpacing = spacing + 'px';
+            };
+            window.addEventListener('scroll', updateSpacing);
+            updateSpacing();
+        }
+
+        // GALERIA
+        const panels = document.querySelectorAll('#gallery .panel');
+
+        panels.forEach(panel => {
+            panel.addEventListener('click', () => {
+                removeActiveClasses();
+                panel.classList.add('active');
+            });
+        });
+
+        function removeActiveClasses() {
+            panels.forEach(panel => panel.classList.remove('active'));
+        }
+      });
