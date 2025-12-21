@@ -100,14 +100,16 @@ document.addEventListener("DOMContentLoaded", function() {
         const hiddenElements = document.querySelectorAll(".reveal-text");
         hiddenElements.forEach((el) => observer.observe(el));
 
-        const textTitle = document.querySelector('.reveal-text');
-        if (textTitle) {
+        const textTitles = document.querySelectorAll('.reveal-text');
+        if (textTitles.length > 0) {
             const updateSpacing = () => {
-                const rect = textTitle.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
-                // Calcula el espaciado: empieza amplio abajo y se reduce (achica) al subir
-                let spacing = Math.max(0, (rect.top - windowHeight / 2) / 10);
-                textTitle.style.letterSpacing = spacing + 'px';
+                textTitles.forEach(textTitle => {
+                    const rect = textTitle.getBoundingClientRect();
+                    // Calcula el espaciado: empieza amplio abajo y se reduce (achica) al subir
+                    let spacing = Math.max(0, (rect.top - windowHeight / 2) / 10);
+                    textTitle.style.letterSpacing = spacing + 'px';
+                });
             };
             window.addEventListener('scroll', updateSpacing);
             updateSpacing();

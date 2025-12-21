@@ -417,3 +417,12 @@ header a{
       .panel.active h3 {
         opacity: 1;
       }
+
+      .subtitulo {
+        font-weight: 100;
+        font-size: 24px;
+        text-transform: uppercase;
+      }
+      .subtitulo h2 {
+        font-weight: 100;
+      }
