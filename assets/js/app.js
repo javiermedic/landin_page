@@ -129,3 +129,34 @@ document.addEventListener("DOMContentLoaded", function() {
             panels.forEach(panel => panel.classList.remove('active'));
         }
       });
+
+
+      // PAGINA WEB TRABAJOS
+      // Animación Text Splitting para el Título
+      const text = document.querySelector('.split-text');
+      if (text) {
+        const strText = text.textContent;
+        const splitText = strText.split("");
+        text.textContent = "";
+        
+        splitText.forEach((char, index) => {
+          const span = document.createElement('span');
+          span.textContent = char;
+          span.style.animationDelay = `${index * 0.1}s`;
+          text.appendChild(span);
+        });
+      }
+
+      // Animación Scroll para los Cuadros Blancos
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          } else {
+            entry.target.classList.remove('active');
+          }
+        });
+      }, { threshold: 0.3 });
+
+      const boxes = document.querySelectorAll('.white-box');
+      boxes.forEach((el) => observer.observe(el));

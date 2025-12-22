@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trabajos</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      header {
+        display: flex;
+        justify-content: flex-end;
+      }
+      body {
+        min-height: 200vh; /* Asegura espacio para hacer scroll */
+      }
+      .seccion1 {
+        padding: 0 60px;
+      }
+      .titulo {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 0;
+      }
+      .container.seccion1 {
+        margin-top: 80vh;
+        position: relative;
+        z-index: 1;
+      }
+      h2 {
+        font-size: 36px;
+        font-weight: 100;
+        text-transform: uppercase;
+      }
+      h3 {
+        font-size: 24px;
+      }
+      .row-trabajos {
+        align-items: flex-start; /* Permite alturas desiguales para el efecto sticky */
+      }
+      .sticky-col {
+        position: sticky;
+        top: 0;
+      }
+      .offset-col {
+        margin-top: 100vh; /* Retrasa la aparición de la segunda columna */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="">Home</a>
+        <a href="">Contacts</a>
+        <a href="">Info</a>
+      </nav>
+    </header>
+
+    <!-- titulo -->
+    <div class="titulo">
+      <div class="seccion1">
+        <div class="row">
+          <div class="col-12" style="text-align: center; width: 100%">
+            <h1 class="split-text">Trabajos</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INICIO SECCION 1 -->
+    <!-- TITULO TRABAJOS -->
+
+    <div class="container seccion1">
+      <div class="row row-trabajos">
+        <div class="col-6 sticky-col">
+          <div class="white-box">
+            <div class="work-info">
+              <h2>Glaciares Chilenos</h2>
+              <h3>Fundación de glaciares</h3>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit eum
+                temporibus possimus asperiores facilis. Illo blanditiis qui aperiam
+                quidem dignissimos nam consequuntur quia, ullam iusto obcaecati quis
+                unde culpa tempore.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 offset-col">
+          <div class="white-box">
+            <div class="work-info">
+              <h2>Med-Ic</h2>
+              <h3>Empresa ingeniería</h3>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit eum
+                temporibus possimus asperiores facilis. Illo blanditiis qui aperiam
+                quidem dignissimos nam consequuntur quia, ullam iusto obcaecati quis
+                unde culpa tempore.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FIN SECCION 1 -->
+
+    <script src="assets/js/app.js"></script>
+    
+  </body>
+</html>
