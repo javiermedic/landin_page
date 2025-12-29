@@ -158,5 +158,22 @@ document.addEventListener("DOMContentLoaded", function() {
         });
       }, { threshold: 0.3 });
 
-      const boxes = document.querySelectorAll('.white-box');
+      const boxes = document.querySelectorAll('.white-box, .img-container');
       boxes.forEach((el) => observer.observe(el));
+
+      // Parallax Effect para Imágenes de Proyectos
+      const projects = document.querySelectorAll('.project');
+      
+      if(projects.length > 0) {
+        const animateProjects = () => {
+            projects.forEach(project => {
+                const img = project.querySelector('img');
+                const rect = project.getBoundingClientRect();
+                // Mueve la imagen ligeramente en vertical basado en la posición del scroll
+                const move = (rect.top / window.innerHeight) * -100; 
+                img.style.transform = `translateY(${move}px) scale(1.2)`;
+            });
+        };
+        window.addEventListener('scroll', animateProjects);
+        animateProjects();
+      }
